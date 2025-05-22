@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CV - Phạm Tuấn Khôi</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .sidebar {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--dark-color);
+            margin: 15px 0 10px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid white;
+        }
+        
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .project {
+            margin-bottom: 20px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .project-description {
+            margin-top: 5px;
+        }
+        
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .hobby {
+            background-color: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .reference-links {
+            margin-top: 20px;
+        }
+        
+        .reference-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .reference-links a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile">
+                <!-- Thay thế bằng ảnh của bạn -->
+                <img src="khungoi.jpg" alt="Phạm Tuấn Khôi" class="profile-img">
+                <h1>Phạm Tuấn Khôi</h1>
+                <p class="subtitle">Kỹ sư phần mềm</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>29/10/2006</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0914371431</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>phamkhoiqn2022@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <section>
+                    <h2>Kỹ năng</h2>
+                    <div class="skills">
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">Java</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">React</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Phân tích thuật toán</span>
+                        <span class="skill">Thiết kế database</span>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Chứng chỉ</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Chứng chỉ Lập trình Python</h3>
+                            <p>Học viện Công nghệ</p>
+                            <p class="timeline-date">2023</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Chứng chỉ Web Development</h3>
+                            <p>Coursera</p>
+                            <p class="timeline-date">2022</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Sở thích</h2>
+                    <div class="hobbies">
+                        <span class="hobby">Lập trình</span>
+                        <span class="hobby">Đọc sách</span>
+                        <span class="hobby">Âm nhạc</span>
+                        <span class="hobby">Du lịch</span>
+                        <span class="hobby">Thể thao</span>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Tham khảo</h2>
+                    <div class="reference-links">
+                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://stackoverflow.com/" target="_blank"><i class="fab fa-stack-overflow"></i> Stack Overflow</a>
+                        <a href="https://leetcode.com/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+                        <a href="https://www.freecodecamp.org/" target="_blank"><i class="fab fa-free-code-camp"></i> freeCodeCamp</a>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="main-section">
+                <section>
+                    <h2>Mục tiêu nghề nghiệp</h2>
+                    <p>Mong muốn trở thành một kỹ sư phần mềm chuyên nghiệp với khả năng phát triển các ứng dụng web và di động chất lượng cao. Đặc biệt quan tâm đến lĩnh vực trí tuệ nhân tạo và học máy, hướng tới việc tạo ra các giải pháp công nghệ đột phá.</p>
+                </section>
+                
+                <section>
+                    <h2>Học vấn</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Trường Đại học Công nghệ</h3>
+                            <p>Chuyên ngành: Kỹ thuật phần mềm</p>
+                            <p>GPA: 3.8/4.0</p>
+                            <p class="timeline-date">2024 - Hiện tại</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Trường THPT Chuyên</h3>
+                            <p>Chuyên Toán - Tin</p>
+                            <p class="timeline-date">2020 - 2023</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Kinh nghiệm</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Thực tập sinh phát triển web</h3>
+                            <p>Công ty Công nghệ ABC</p>
+                            <ul>
+                                <li>Phát triển giao diện người dùng với React.js</li>
+                                <li>Xây dựng API với Node.js và Express</li>
+                                <li>Tối ưu hiệu suất ứng dụng web</li>
+                            </ul>
+                            <p class="timeline-date">Mùa hè 2023</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Trợ giảng môn Lập trình</h3>
+                            <p>Trung tâm Tin học XYZ</p>
+                            <ul>
+                                <li>Hướng dẫn sinh viên các khái niệm lập trình cơ bản</li>
+                                <li>Chấm bài và giải đáp thắc mắc</li>
+                                <li>Phát triển tài liệu học tập</li>
+                            </ul>
+                            <p class="timeline-date">2022 - 2023</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Hoạt động</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Câu lạc bộ Lập trình</h3>
+                            <p>Thành viên tích cực</p>
+                            <ul>
+                                <li>Tham gia các cuộc thi lập trình</li>
+                                <li>Tổ chức workshop về công nghệ mới</li>
+                            </ul>
+                            <p class="timeline-date">2023 - Hiện tại</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Tình nguyện viên dạy Tin học</h3>
+                            <p>Tổ chức từ thiện</p>
+                            <ul>
+                                <li>Dạy kỹ năng máy tính cơ bản cho trẻ em</li>
+                                <li>Hướng dẫn lập trình Scratch</li>
+                            </ul>
+                            <p class="timeline-date">2022</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Dự án</h2>
+                    <div class="project">
+                        <h3 class="project-title">Hệ thống quản lý thư viện</h3>
+                        <p class="project-description">Phát triển ứng dụng web quản lý sách và người mượn sử dụng React và Firebase.</p>
+                        <p><strong>Công nghệ:</strong> React, Firebase, Material-UI</p>
+                    </div>
+                    <div class="project">
+                        <h3 class="project-title">Ứng dụng nhắc việc</h3>
+                        <p class="project-description">Xây dựng ứng dụng di động quản lý công việc với tính năng thông báo.</p>
+                        <p><strong>Công nghệ:</strong> Flutter, Firebase</p>
+                    </div>
+                    <div class="project">
+                        <h3 class="project-title">Website tin tức công nghệ</h3>
+                        <p class="project-description">Thiết kế và phát triển website tổng hợp tin tức công nghệ với hệ thống quản trị.</p>
+                        <p><strong>Công nghệ:</strong> HTML/CSS, JavaScript, PHP, MySQL</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>CV cá nhân</h2>
+                    <p>Tải xuống bản CV đầy đủ của tôi:</p>
+                    <a href="#" style="color: var(--primary-color); text-decoration: none;"><i class="fas fa-file-pdf"></i> CV_PhamTuanKhoi.pdf</a>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Phạm Tuấn Khôi. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
